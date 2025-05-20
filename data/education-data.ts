@@ -12,15 +12,4 @@ export const educationData: EducationData[] = [
       "Worked on 'Credit Scoring Fraudulent in Banking System' Research Paper",
     ],
   },
-  {
-    degree: "Ethical Research Training",
-    institution: "University of Hong Kong and SIWF",
-    period: "December, 2023",
-    description:
-      "Completed comprehensive training in ethical research practices in collaboration with University of Hong Kong and Swiss National Science Foundation (SIWF).",
-    achievements: [
-      "Received certification in ethical research methodologies",
-      "Developed understanding of international research ethics standards",
-    ],
-  },
 ]

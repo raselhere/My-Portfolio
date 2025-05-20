@@ -25,26 +25,4 @@ export const certificatesData: CertificateData[] = [
       "Awarded for exceptional performance and contributions to the NSU ACM Student Chapter activities and events.",
     url: "https://example.com/certificates/acm-summer-2022",
   },
-  {
-    title: "Machine Learning Specialization",
-    issuer: "Coursera",
-    date: "June, 2023",
-    description:
-      "Comprehensive specialization covering machine learning algorithms, neural networks, and practical applications.",
-    url: "https://example.com/certificates/ml-specialization",
-  },
-  {
-    title: "Full Stack Web Development",
-    issuer: "Udemy",
-    date: "March, 2022",
-    description: "Complete course on modern full stack web development using React, Node.js, and related technologies.",
-    url: "https://example.com/certificates/fullstack-dev",
-  },
-  {
-    title: "Data Structures and Algorithms",
-    issuer: "HackerRank",
-    date: "January, 2022",
-    description: "Certification for proficiency in implementing and optimizing various data structures and algorithms.",
-    url: "https://example.com/certificates/dsa-certification",
-  },
 ]
