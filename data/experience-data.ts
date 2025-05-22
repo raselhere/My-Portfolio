@@ -11,8 +11,17 @@ export const experienceData: ExperienceData[] = [
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Machine Learning", "AI Integration"],
   },
   {
+    title: "Research Assistant",
+    company: "Human Computer Interaction, DIAL, NSU",
+    location: "North South University",
+    period: "February, 2023 - February, 2024",
+    description:
+      "Worked on 'Credit Scoring Fraudulent in Banking System' Research Paper, apart from that also worked on several projects to gather hands-on experience with a focus on Machine Learning.",
+    technologies: ["Machine Learning", "Data Analysis", "Research Methodology", "Banking Systems"],
+  },
+  {
     title: "Social Media Manager",
-    company: "Bengali Boin, Social Media Content Creator",
+    company: "Social Media Content Creator",
     location: "Bangladesh",
     period: "July, 2020 - January, 2025",
     description:
@@ -36,15 +45,6 @@ export const experienceData: ExperienceData[] = [
       "Handled international client communications effectively",
       "Resolved complex client disputes",
     ],
-  },
-  {
-    title: "Research Assistant",
-    company: "Human Computer Interaction, DIAL, NSU",
-    location: "North South University",
-    period: "February, 2023 - February, 2024",
-    description:
-      "Worked on 'Credit Scoring Fraudulent in Banking System' Research Paper, apart from that also worked on several projects to gather hands-on experience with a focus on Machine Learning.",
-    technologies: ["Machine Learning", "Data Analysis", "Research Methodology", "Banking Systems"],
   },
   {
     title: "Event Organizer",

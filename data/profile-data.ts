@@ -24,5 +24,15 @@ export const profileData: ProfileData = {
       url: "https://www.kaggle.com/raselahmed007",
       username: "raselahmed007",
     },
+    {
+      platform: "Facebook",
+      url: "https://www.facebook.com/share/1LCHDmFLpt/",
+      username: "raselahmed007",
+    },
+    {
+      platform: "Instagram",
+      url: "https://www.instagram.com/aasel.rhmed?igsh=MXc1NGw0YWtpeWdmMw==",
+      username: "raselahmed007",
+    },
   ],
 }
