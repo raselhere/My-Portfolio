@@ -47,6 +47,6 @@ export const projectsData: ProjectData[] = [
       "A comprehensive system for managing Zakat (Islamic charity) collection and distribution. Helps track donations, beneficiaries, and distribution of funds.",
     technologies: ["Java", "Database Management", "Financial System", "Charity Management"],
     github: "https://github.com/raselhere/Jakat-Management-System",
-    image: "images/githubProject.png",
+    image: "/images/githubProject.png",
   },
 ]
