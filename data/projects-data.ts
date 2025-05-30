@@ -4,7 +4,7 @@ export const projectsData: ProjectData[] = [
   {
     title: "PASMA - Personalised AI-Powered Smart Medical Assistant",
     description:
-      "Personalised AI-powered health care system built with Flask. Features a medical admin panel with CRUD functionality, chatbot integration, role-based access, and structured JSON storage for managing patient records.",
+      "Personalised AI-powered health care system built with Flask. Features disease detection based on symptoms, a medical admin panel with CRUD functionality, chatbot integration, role-based access, and structured JSON storage for managing patient records.",
     technologies: ["HTML", "CSS", "JavaScript", "Flask", "Python", "AI", "Healthcare"],
     github: "https://github.com/raselhere/PASMA-Personalised-AI-Powered-Smart-Medical-Assistant-",
     image: "/images/pasma-project.jpg",
@@ -16,6 +16,14 @@ export const projectsData: ProjectData[] = [
     technologies: ["Python", "Machine Learning", "Computer Vision", "TensorFlow", "OpenCV"],
     github: "https://github.com/raselhere/Sign_Language_Detection",
     image: "/images/sign-language-project.jpg",
+  },
+  {
+    title: "Fake Photo Detection using Deep Fake",
+    description:
+      "This system is capable of identifying manipulated or synthetic images, often referred to as deepfakes, that have been created using deep learning techniques.",
+    technologies: ["Python", "Deep Learning", "Computer Vision", "Image Processing", "AI"],
+    github: "https://github.com/raselhere/Fake-Photo-Detection-using-Deep-Fake",
+    image: "/images/deepfake-project.jpg",
   },
   {
     title: "Cost-Efficient Computation Framework",
@@ -40,13 +48,5 @@ export const projectsData: ProjectData[] = [
     technologies: ["Java", "Database Management", "Financial System", "Charity Management"],
     github: "https://github.com/raselhere/Jakat-Management-System",
     image: "/images/jakat-management-project.jpg",
-  },
-  {
-    title: "Process Scheduling System",
-    description:
-      "A simulation of various CPU scheduling algorithms. This project demonstrates different process scheduling techniques used in operating systems.",
-    technologies: ["C", "Operating Systems", "Algorithms", "Process Scheduling", "Simulation"],
-    github: "https://github.com/raselhere/Process-Scheduling-System",
-    image: "/images/process-scheduling-project.jpg",
   },
 ]
