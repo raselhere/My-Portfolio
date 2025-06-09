@@ -27,7 +27,7 @@ export const profileData: ProfileData = {
     {
       platform: "Facebook",
       url: "https://www.facebook.com/share/19QbKBjNsp/?mibextid=wwXIfr",
-      username: "raselraju",
+      username: "Rasel Ahmed",
     },
     {
       platform: "Instagram",
