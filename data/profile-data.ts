@@ -26,12 +26,12 @@ export const profileData: ProfileData = {
     },
     {
       platform: "Facebook",
-      url: "https://www.facebook.com/share/1LCHDmFLpt/",
+      url: "https://www.facebook.com/share/19QbKBjNsp/?mibextid=wwXIfr",
       username: "raselahmed007",
     },
     {
       platform: "Instagram",
-      url: "https://www.instagram.com/aasel.rhmed?igsh=MXc1NGw0YWtpeWdmMw==",
+      url: "https://www.instagram.com/aasel.rhmed?igsh=MTkwcnlqbDN0NGVpeA==",
       username: "raselahmed007",
     },
   ],
