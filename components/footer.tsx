@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react"
 import { profileData } from "@/data/profile-data"
+import { ExternalLink, Facebook, Github, Instagram, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -48,6 +48,24 @@ const Footer = () => {
                 aria-label="Kaggle"
               >
                 <ExternalLink className="h-5 w-5" />
+              </a>
+              <a
+                href={profileData.socialLinks[3].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href={profileData.socialLinks[4].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -117,6 +135,28 @@ const Footer = () => {
                   className="hover:text-white transition-colors"
                 >
                   GitHub
+                </a>
+              </li>
+              <li className="flex items-center text-gray-300">
+                <Facebook className="h-5 w-5 mr-2" />
+                <a
+                  href={profileData.socialLinks[3].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li className="flex items-center text-gray-300">
+                <Instagram className="h-5 w-5 mr-2" />
+                <a
+                  href={profileData.socialLinks[4].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Instagram
                 </a>
               </li>
             </ul>

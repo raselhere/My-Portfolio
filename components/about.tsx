@@ -1,8 +1,8 @@
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { profileData } from "@/data/profile-data"
+import { ExternalLink, Facebook, Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import Image from "next/image"
 import AnimateInView from "./animate-in-view"
-import { Github, Linkedin, ExternalLink, Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react"
 
 const About = () => {
   return (
@@ -99,7 +99,7 @@ const About = () => {
                         <ExternalLink className="h-6 w-6" />
                       </a>
                       <a
-                        href="https://www.facebook.com/raselhere"
+                        href={profileData.socialLinks[3].url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors duration-300"
@@ -108,7 +108,7 @@ const About = () => {
                         <Facebook className="h-6 w-6" />
                       </a>
                       <a
-                        href="https://www.instagram.com/raselhere"
+                        href={profileData.socialLinks[4].url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors duration-300"

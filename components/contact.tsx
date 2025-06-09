@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { profileData } from "@/data/profile-data"
 import { useToast } from "@/hooks/use-toast"
 import { sendEmail } from "@/lib/send-email"
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { Facebook, Github, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import AnimateInView from "./animate-in-view"
@@ -146,6 +146,40 @@ const Contact = () => {
                         className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-300"
                       >
                         {profileData.socialLinks[1].username}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start group">
+                    <div className="h-6 w-6 text-primary mr-4 mt-0.5 flex justify-center transition-transform duration-300 group-hover:scale-110">
+                      <Facebook className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 dark:text-white">Facebook</h4>
+                      <a
+                        href={profileData.socialLinks[3].url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-300"
+                      >
+                        {profileData.socialLinks[3].username}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start group">
+                    <div className="h-6 w-6 text-primary mr-4 mt-0.5 flex justify-center transition-transform duration-300 group-hover:scale-110">
+                      <Instagram className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 dark:text-white">Instagram</h4>
+                      <a
+                        href={profileData.socialLinks[4].url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-300"
+                      >
+                        {profileData.socialLinks[4].username}
                       </a>
                     </div>
                   </div>
