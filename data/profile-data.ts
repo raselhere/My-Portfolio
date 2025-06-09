@@ -2,7 +2,7 @@ import type { ProfileData } from "@/types"
 
 export const profileData: ProfileData = {
   name: "Rasel Ahmed Raju",
-  title: "Web Developer & AI Engineer",
+  title: "Full Stack Developer & AI Engineer",
   email: "raselraju.queries@gmail.com",
   phone: "01796351793",
   location: "Bangladesh",
