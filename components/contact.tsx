@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { profileData } from "@/data/profile-data"
 import emailjs from '@emailjs/browser'
-import { Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { CheckCircle2, Linkedin, Loader2, Mail, MapPin, Phone, Send } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import { toast } from "sonner"
@@ -16,6 +16,7 @@ import AnimateInView from "./animate-in-view"
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,11 +27,16 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // Reset success state when user starts typing again
+    if (isSuccess) {
+      setIsSuccess(false)
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setIsSuccess(false)
 
     try {
       // EmailJS configuration with your actual credentials
@@ -52,8 +58,6 @@ const Contact = () => {
         reply_to: formData.email,
       }
 
-      console.log('Sending email with:', { serviceId, templateId, templateParams })
-
       // Send email using EmailJS
       const response = await emailjs.send(
         serviceId,
@@ -62,25 +66,38 @@ const Contact = () => {
         publicKey
       )
 
-      console.log('EmailJS response:', response)
-
-      if (response.status === 200) {
+      // Check for successful response
+      if (response.status === 200 || response.text === 'OK') {
+        // Set success state immediately
+        setIsSuccess(true)
+        
+        // Show success toast
         toast.success("Message sent successfully! I'll get back to you soon.", {
           duration: 5000,
         })
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        })
+        
+        // Keep form filled for 1.5 seconds to show success state
+        setTimeout(() => {
+          // Auto-clear the form after 1.5 seconds
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          })
+          // Reset success state after form is cleared
+          setTimeout(() => {
+            setIsSuccess(false)
+          }, 500)
+        }, 1500)
       } else {
         throw new Error(`EmailJS returned status: ${response.status}`)
       }
     } catch (error) {
       console.error("Error sending email:", error)
+      setIsSuccess(false)
       
-      // More specific error messages
+      // Error handling
       if (error instanceof Error) {
         if (error.message.includes('Invalid')) {
           toast.error("Invalid EmailJS configuration. Please check your credentials.", {
@@ -213,6 +230,7 @@ const Contact = () => {
                         placeholder="John Doe"
                         required
                         className="transition-all duration-300 focus:border-primary focus:ring-primary"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div className="space-y-2">
@@ -228,6 +246,7 @@ const Contact = () => {
                         placeholder="john@example.com"
                         required
                         className="transition-all duration-300 focus:border-primary focus:ring-primary"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -243,6 +262,7 @@ const Contact = () => {
                       placeholder="Project Inquiry"
                       required
                       className="transition-all duration-300 focus:border-primary focus:ring-primary"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
@@ -258,14 +278,38 @@ const Contact = () => {
                       rows={6}
                       required
                       className="transition-all duration-300 focus:border-primary focus:ring-primary"
+                      disabled={isSubmitting}
                     />
                   </div>
+                  
+                  {/* Send Message Button with all the requested features */}
                   <Button
                     type="submit"
-                    className="w-full transition-all duration-300 hover:scale-[1.02] gradient-bg"
                     disabled={isSubmitting}
+                    className={`w-full transition-all duration-500 ${
+                      isSuccess 
+                        ? 'bg-green-500 hover:bg-green-600 text-white shadow-lg transform scale-105' 
+                        : isSubmitting 
+                        ? 'gradient-bg opacity-75 cursor-not-allowed' 
+                        : 'gradient-bg hover:scale-[1.02]'
+                    }`}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : isSuccess ? (
+                      <>
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-white" />
+                        Message Sent!
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>
