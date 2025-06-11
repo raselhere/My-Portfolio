@@ -6,10 +6,10 @@ export const educationData: EducationData[] = [
     institution: "North South University",
     period: "Ongoing",
     description:
-      "Major: Artificial Intelligence (Machine Learning). Focusing on advanced concepts in AI, machine learning algorithms, and their practical applications.",
+      "Major: Machine Learning(Artificial Intelligence).",
     achievements: [
-      "Research Assistant at Human Computer Interaction, DIAL, NSU",
-      "Worked on 'Credit Scoring Fraudulent in Banking System' Research Paper",
+      "Research Assistant - Human Computer Interaction, DIAL, NSU",
+      "Executive Body Member(Chapter Treasurer) - NSU ACM Student Chapter",
     ],
   },
 ]
