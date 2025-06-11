@@ -1,39 +1,41 @@
 "use server"
 
 import type { EmailData } from "@/types"
+import emailjs from '@emailjs/browser'
 
 export async function sendEmail(data: EmailData) {
   try {
-    // In a real implementation, you would use a service like Nodemailer, SendGrid, etc.
-    // For now, we'll simulate a successful email send
+    // EmailJS configuration
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'your_service_id'
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'your_template_id'
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key'
 
-    // Example implementation with EmailJS or similar service would go here
-    // const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     service_id: 'your_service_id',
-    //     template_id: 'your_template_id',
-    //     user_id: 'your_user_id',
-    //     template_params: {
-    //       from_name: data.name,
-    //       from_email: data.email,
-    //       subject: data.subject,
-    //       message: data.message,
-    //       to_email: 'raselraju.queries@gmail.com',
-    //     },
-    //   }),
-    // });
+    // Template parameters for EmailJS
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      subject: data.subject,
+      message: data.message,
+      to_name: 'Rasel Ahmed Raju',
+      to_email: 'raselraju.queries@gmail.com',
+      reply_to: data.email,
+    }
 
-    // Simulate a delay to mimic API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    // Send email using EmailJS
+    const response = await emailjs.send(
+      serviceId,
+      templateId,
+      templateParams,
+      publicKey
+    )
 
-    // Return success
-    return { success: true }
+    if (response.status === 200) {
+      return { success: true, message: 'Email sent successfully!' }
+    } else {
+      throw new Error('Failed to send email')
+    }
   } catch (error) {
     console.error("Error sending email:", error)
-    throw new Error("Failed to send email")
+    throw new Error("Failed to send email. Please try again later.")
   }
 }

@@ -7,15 +7,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { profileData } from "@/data/profile-data"
-import { useToast } from "@/hooks/use-toast"
-import { sendEmail } from "@/lib/send-email"
+import emailjs from '@emailjs/browser'
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
+import { toast } from "sonner"
 import AnimateInView from "./animate-in-view"
 
 const Contact = () => {
-  const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -34,23 +33,73 @@ const Contact = () => {
     setIsSubmitting(true)
 
     try {
-      await sendEmail(formData)
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      })
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
+      // EmailJS configuration with your actual credentials
+      const serviceId = 'service_mxe1pim'
+      const templateId = 'portfolio_contact'
+      const publicKey = 'd8HtsgrrQNWIbWhKj'
+
+      // Initialize EmailJS
+      emailjs.init(publicKey)
+
+      // Template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Rasel Ahmed Raju',
+        to_email: 'raselraju.queries@gmail.com',
+        reply_to: formData.email,
+      }
+
+      console.log('Sending email with:', { serviceId, templateId, templateParams })
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      )
+
+      console.log('EmailJS response:', response)
+
+      if (response.status === 200) {
+        toast.success("Message sent successfully! I'll get back to you soon.", {
+          duration: 5000,
+        })
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        throw new Error(`EmailJS returned status: ${response.status}`)
+      }
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
-        variant: "destructive",
-      })
+      console.error("Error sending email:", error)
+      
+      // More specific error messages
+      if (error instanceof Error) {
+        if (error.message.includes('Invalid')) {
+          toast.error("Invalid EmailJS configuration. Please check your credentials.", {
+            duration: 8000,
+          })
+        } else if (error.message.includes('rate limit')) {
+          toast.error("Too many requests. Please wait a moment and try again.", {
+            duration: 8000,
+          })
+        } else {
+          toast.error(`Failed to send message: ${error.message}`, {
+            duration: 8000,
+          })
+        }
+      } else {
+        toast.error("Failed to send message. Please try again later.", {
+          duration: 5000,
+        })
+      }
     } finally {
       setIsSubmitting(false)
     }
