@@ -5,7 +5,7 @@ export const experienceData: ExperienceData[] = [
     title: "Full Stack Developer & Data Engineer",
     company: "Tutors Plan BD",
     location: "Bangladesh",
-    period: "February, 2025 - Present",
+    period: "February, 2025 - July, 2025",
     description:
       "Working on Tutors Plan dynamic web application that includes AI integration on the system, also been responsible for multiple projects under the company.",
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Machine Learning", "AI Integration"],

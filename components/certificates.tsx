@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
 import { certificatesData } from "@/data/certificates-data"
 import AnimateInView from "./animate-in-view"
 
@@ -42,6 +42,32 @@ const Certificates = () => {
               </Card>
             </AnimateInView>
           ))}
+
+          {/* Certificate Images */}
+          <AnimateInView animation="fade-up" delay={certificatesData.length * 100}>
+            <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary gradient-border flex flex-col items-center justify-center">
+              <CardContent className="p-4 flex flex-col items-center">
+                <img src="/Module 1.png" alt="Module 1 Certificate" className="rounded-lg shadow-md object-contain w-full h-64 mb-4 border border-primary" />
+                <h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white mb-2">Module 1 Training Certificate</h3>
+              </CardContent>
+            </Card>
+          </AnimateInView>
+          <AnimateInView animation="fade-up" delay={(certificatesData.length + 1) * 100}>
+            <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary gradient-border flex flex-col items-center justify-center">
+              <CardContent className="p-4 flex flex-col items-center">
+                <img src="/Module 2.png" alt="Module 2 Certificate" className="rounded-lg shadow-md object-contain w-full h-64 mb-4 border border-primary" />
+                <h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white mb-2">Module 2 (2023) Certificate</h3>
+              </CardContent>
+            </Card>
+          </AnimateInView>
+          <AnimateInView animation="fade-up" delay={(certificatesData.length + 2) * 100}>
+            <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary gradient-border flex flex-col items-center justify-center">
+              <CardContent className="p-4 flex flex-col items-center">
+                <img src="/Module 3.png" alt="Module 3 Certificate" className="rounded-lg shadow-md object-contain w-full h-64 mb-4 border border-primary" />
+                <h3 className="text-lg font-semibold text-center text-gray-900 dark:text-white mb-2">Module 3 (2023) Certificate</h3>
+              </CardContent>
+            </Card>
+          </AnimateInView>
         </div>
       </div>
     </section>

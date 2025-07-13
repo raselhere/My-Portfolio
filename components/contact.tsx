@@ -74,17 +74,17 @@ const Contact = () => {
         // Show success toast
         toast.success("Message sent successfully! I'll get back to you soon.", {
           duration: 5000,
-        })
+      })
         
         // Keep form filled for 1.5 seconds to show success state
         setTimeout(() => {
           // Auto-clear the form after 1.5 seconds
-          setFormData({
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-          })
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
           // Reset success state after form is cleared
           setTimeout(() => {
             setIsSuccess(false)
@@ -115,7 +115,7 @@ const Contact = () => {
       } else {
         toast.error("Failed to send message. Please try again later.", {
           duration: 5000,
-        })
+      })
       }
     } finally {
       setIsSubmitting(false)
