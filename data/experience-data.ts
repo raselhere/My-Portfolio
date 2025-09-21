@@ -2,6 +2,15 @@ import type { ExperienceData } from "@/types"
 
 export const experienceData: ExperienceData[] = [
   {
+    title: "Cheif of Operations",
+    company: "MoveoMedia",
+    location: "Remote",
+    period: "July, 2025 - Present",
+    description:
+      "Been Working on Web Development and Automation, Real-State Leads Handling, Business Development, Content handling for the company.",
+    technologies: ["GoHighLevel", "AI Integration", "Web Development", "Automation", "Real-State Leads Handling", "Business Development", "Video Editing"],
+  },
+  {
     title: "Full Stack Developer & Data Engineer",
     company: "Tutors Plan BD",
     location: "Bangladesh",
